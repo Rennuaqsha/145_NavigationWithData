@@ -22,7 +22,9 @@ import androidx.compose.ui.unit.dp
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HalamanForm(
-    onSubmitButtonClicked: (MutableList<String>) -> Unit) {
+    onSubmitButtonClicked: (MutableList<String>) -> Unit,
+    onBackButtonCLicked: () -> Unit
+) {
 
     var namaTxt by remember {
         mutableStateOf("")
@@ -67,6 +69,9 @@ fun HalamanForm(
 
         Spacer(modifier = Modifier.height(15.dp))
 
+        Button(onClick = {onBackButtonCLicked}) {
+            Text(text = stringResource(id = R.string.back_button))
+        }
         Button(onClick = { onSubmitButtonClicked(listData) }) {
             Text(text = stringResource(id = R.string.btn_sumbit))
         }

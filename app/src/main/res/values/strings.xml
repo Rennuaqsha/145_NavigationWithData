@@ -18,4 +18,5 @@
     <string name="nameUser">Nama</string>
     <string name="addressUser">Alamat</string>
     <string name="phoneUser">No Telp</string>
+    <string name="submit_button">Submit</string>
 </resources>

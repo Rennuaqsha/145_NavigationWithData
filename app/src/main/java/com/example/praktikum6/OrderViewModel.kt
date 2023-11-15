@@ -1,6 +1,7 @@
 package com.example.praktikum6
 
 import androidx.lifecycle.ViewModel
+import com.example.praktikum6.data.FormState
 import com.example.praktikum6.data.OrderUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,7 +13,9 @@ private const val HARGA_PER_CUP = 3000
 
 class OrderViewModel : ViewModel() {
     private val _stateUI = MutableStateFlow(OrderUiState())
+    private val _nameSTATE = MutableStateFlow(FormState())
     val stateUI: StateFlow<OrderUiState> = _stateUI.asStateFlow()
+    val nameST : StateFlow<FormState> = _nameSTATE.asStateFlow()
 
     fun setJumlah(jmlEsJumbo: Int) {
         _stateUI.update { stateSaatIni ->

@@ -15,3 +15,12 @@ fun FormatLabelHarga(subtotal: String, modifier: Modifier = Modifier) {
         style = MaterialTheme.typography.headlineSmall
     )
 }
+
+@Composable
+fun FormatDataPemesanan(namaPemesanan: String, modifier: Modifier = Modifier){
+    Text(text = stringResource(R.string.namaOrder, namaPemesanan),
+        modifier = Modifier,
+        style = MaterialTheme.typography.headlineSmall
+    )
+
+}

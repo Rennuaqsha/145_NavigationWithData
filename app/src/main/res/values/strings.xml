@@ -19,5 +19,7 @@
     <string name="nama">Nama</string>
     <string name="alamat">Alamat</string>
     <string name="no_tlp">No Telp</string>
-    <string name="namaOrder">Nama Pemesanan</string>
+    <string name="namaOrder">Nama Pemesanan : </string>
+    <string name="alamatOrder">Alamat Pemesanan : </string>
+    <string name="phoneOrder">No Telp Pemesanan : </string>
 </resources>

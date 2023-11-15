@@ -25,7 +25,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.praktikum6.data.SumberData.flavors
 
 enum class PengelolaHalaman {
-    Home, Rasa, Summary
+    Home, Rasa,Form, Summary
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -66,6 +66,7 @@ fun EsJumboApp(
         })
     }) { innerPadding ->
         val uiState by viewModel.stateUI.collectAsState()
+        val nameState by viewModel.nameST.collectAsState()
         NavHost(
             navController = navController,
             startDestination = PengelolaHalaman.Home.name,
@@ -76,6 +77,14 @@ fun EsJumboApp(
                     navController.navigate(PengelolaHalaman.Rasa.name)
                 })
 
+            }
+            composable(route = PengelolaHalaman.Form.name){
+                HalamanForm(
+                    onSubmitButtonClicked = {
+                        viewModel.setNama(it)
+                        navController.navigate(PengelolaHalaman.Rasa.name)},
+                    onBackButtonCLicked = {navController.popBackStack()
+                    })
             }
             composable(route = PengelolaHalaman.Rasa.name) {
                 val context = LocalContext.current
@@ -90,7 +99,9 @@ fun EsJumboApp(
                     })
             }
             composable(route = PengelolaHalaman.Summary.name) {
-                HalamanDua(orderUIState = uiState,
+                HalamanDua(
+                    orderUIState = uiState,
+                    formState = nameState,
                     onCancelButtonClicked = { cancelOrderAndNavigateToRasa(navController) })
             }
         }

@@ -17,11 +17,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import com.example.praktikum6.data.FormState
 import com.example.praktikum6.data.OrderUiState
+import com.example.praktikum6.ui.komponen.FormatDataPemesanan
 import com.example.praktikum6.ui.komponen.FormatLabelHarga
 
 @Composable
 fun HalamanDua(
+    formState: FormState,
     orderUIState: OrderUiState,
     onCancelButtonClicked: () -> Unit,
     //onSendbuttonClicked: (String, String) -> Unit,
@@ -39,6 +42,8 @@ fun HalamanDua(
             modifier = Modifier.padding(dimensionResource(R.dimen.padding_medium)),
             Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
         ) {
+            FormatDataPemesanan(namaPemesanan = formState.nama)
+            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
             items.forEach { item ->
                 Column {
                     Text(item.first.uppercase())

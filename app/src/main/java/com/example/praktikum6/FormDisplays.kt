@@ -72,7 +72,7 @@ fun HalamanForm(
         Button(onClick = {onBackButtonCLicked}) {
             Text(text = stringResource(id = R.string.back_button))
         }
-        Button(onClick = { onSubmitButtonClicked(listData) }) {
+        Button(onClick = {onSubmitButtonClicked(listData)}) {
             Text(text = stringResource(id = R.string.btn_sumbit))
         }
 
